@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congrats Nadia Bela Arthalita! 💙</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans untuk kesan modern -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- 
+      CSS: STYLING 
+      Fokus pada tema Biru Muda Soft, Glow Effect, dan Slide Transition.
+    -->
+    <style>
+        :root {
+            --bg-blue: #f0f9ff;
+            --soft-blue: #e0f2fe;
+            --bright-blue: #7dd3fc;
+            --deep-blue: #0369a1;
+            --accent-blue: #38bdf8;
+            --glass-white: rgba(255, 255, 255, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-blue);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Latar Belakang Gradasi Animasi */
+        .background-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, var(--soft-blue) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, var(--bright-blue) 0%, transparent 40%);
+            z-index: -1;
+            filter: blur(50px);
+            opacity: 0.6;
+        }
+
+        /* Container Slide */
+        .content-wrapper {
+            position: relative;
+            width: 90%;
+            max-width: 450px;
+            height: 500px;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(3, 105, 161, 0.08);
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            pointer-events: all;
+            z-index: 10;
+        }
+
+        /* Tipografi */
+        h1 {
+            color: var(--deep-blue);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .nadia-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: var(--accent-blue);
+            display: block;
+            margin-top: 5px;
+        }
+
+        p {
+            color: #475569;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* Navigasi & Indikator */
+        .controls {
+            position: absolute;
+            bottom: -80px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-nav {
+            background: var(--deep-blue);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(3, 105, 161, 0.2);
+        }
+
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            background: #0284c7;
+        }
+
+        .btn-nav:disabled {
+            background: #cbd5e1;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .progress-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: var(--accent-blue);
+            width: 20px;
+            border-radius: 10px;
+        }
+
+        /* Efek Love Biru */
+        .heart-particle {
+            position: absolute;
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+            pointer-events: none;
+            animation: floatAway 3s ease-out forwards;
+            z-index: 100;
+        }
+
+        @keyframes floatAway {
+            0% { transform: translate(0, 0) scale(0); opacity: 1; }
+            100% { transform: translate(var(--dx), var(--dy)) scale(1.5); opacity: 0; }
+        }
+
+        .emoji-box {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-glow"></div>
+
+    <div class="content-wrapper">
+        <!-- SLIDE 1 -->
+        <div class="slide active" data-index="0">
+            <div class="emoji-box">✨</div>
+            <h1>Alowww, <br><span class="nadia-name">Nadia Bela Arthalita yg Imut dan Cakep </span></h1>
+            <p>Aku nyoba bikin ginian hehe. Coba pencet klik yg lanjut itu :3 </p>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="slide" data-index="1">
+            <div class="emoji-box">⌛</div>
+            <h1>Ingat Gak?</h1>
+            <p>Semua waktu yang kamu kasih buat belajar, semua lelah kamu selama ini... ak tahu itu nggak gampang buat kamu.</p>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="slide" data-index="2">
+            <div class="emoji-box">💙</div>
+            <h1>Hari Ini...</h1>
+            <p>War is over. Kamu berhasil buktiin kalau usaha kamu nggak sia-sia. lau keren banget!</p>
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="slide" data-index="3">
+            <div class="emoji-box">🎓</div>
+            <h1>Lolos SNBP 2026</h1>
+            <p>Selamat ya, Nona! Satu langkah besar buat masa depan kamu udah tercapai hari ini. perjalanan kamu masih panjang dik. </p>
+        </div>
+
+        <!-- SLIDE 5 -->
+        <div class="slide" data-index="4">
+            <div class="emoji-box">🌠</div>
+            <h1>Semangat Terus!</h1>
+            <p>Semoga perjalanan kuliah kamu nanti menyenangkan. Terus jadi Nadia yang keren kaya gini ya. <i>You deserve all this happiness.</i></p>
+            <button class="btn-nav" onclick="spawnHearts(event)">SPAM TOMBOL INI KELUAR LOPE" 🪄</button>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="controls">
+            <button class="btn-nav" id="prevBtn" onclick="moveSlide(-1)" disabled>Kembali</button>
+            <div class="progress-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <button class="btn-nav" id="nextBtn" onclick="moveSlide(1)">Lanjut</button>
+        </div>
+    </div>
+
+    <!-- 
+      JAVASCRIPT: LOGIC 
+      Menangani pergantian slide dan animasi partikel hati biru.
+    -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        /**
+         * Fungsi untuk berpindah slide
+         * @param {number} direction - 1 untuk maju, -1 untuk mundur
+         */
+        function moveSlide(direction) {
+            // Update index
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            
+            currentSlide += direction;
+            
+            // Batasan slide
+            if(currentSlide < 0) currentSlide = 0;
+            if(currentSlide >= slides.length) currentSlide = slides.length - 1;
+
+            // Tampilkan slide baru
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+
+            // Update status tombol
+            prevBtn.disabled = (currentSlide === 0);
+            nextBtn.disabled = (currentSlide === slides.length - 1);
+
+            // Munculkan hati otomatis jika di slide pengumuman
+            if(currentSlide >= 3) {
+                for(let i=0; i<5; i++) {
+                    setTimeout(spawnHeartsManual, i * 300);
+                }
+            }
+        }
+
+        /**
+         * Animasi hati biru saat tombol diklik
+         */
+        function spawnHearts(e) {
+            const container = document.body;
+            for(let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '💙';
+                heart.className = 'heart-particle';
+                
+                // Posisi awal di sekitar kursor atau tengah
+                heart.style.left = (e.clientX || window.innerWidth/2) + 'px';
+                heart.style.top = (e.clientY || window.innerHeight/2) + 'px';
+                
+                // Arah acak
+                heart.style.setProperty('--dx', (Math.random() * 400 - 200) + 'px');
+                heart.style.setProperty('--dy', (Math.random() * -400 - 100) + 'px');
+                
+                container.appendChild(heart);
+                
+                // Hapus elemen setelah animasi selesai
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+
+        /**
+         * Spawn hati tanpa event klik (untuk transisi otomatis)
+         */
+        function spawnHeartsManual() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💙';
+            heart.className = 'heart-particle';
+            heart.style.left = (Math.random() * 60 + 20) + '%';
+            heart.style.top = '60%';
+            heart.style.setProperty('--dx', (Math.random() * 200 - 100) + 'px');
+            heart.style.setProperty('--dy', '-200px');
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 3000);
+        }
+    </script>
+</body>
+</html>
+
